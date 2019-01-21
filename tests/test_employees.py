@@ -30,10 +30,10 @@ class test_employees(unittest.TestCase):
 
     def setUp(self):
         if self.bamboo is None:
-            self.bamboo = PyBambooHR(subdomain='test', api_key='testingnotrealapikey')
+            self.bamboo = PyBambooHR.PyBambooHR(subdomain='test', api_key='testingnotrealapikey')
 
         if self.bamboo_u is None:
-            self.bamboo_u = PyBambooHR(subdomain='test', api_key='testingnotrealapikey', underscore_keys=True)
+            self.bamboo_u = PyBambooHR.PyBambooHR(subdomain='test', api_key='testingnotrealapikey', underscore_keys=True)
 
     @httpretty.activate
     def test_get_employee_directory(self):

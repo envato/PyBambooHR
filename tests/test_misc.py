@@ -24,7 +24,7 @@ class test_misc(unittest.TestCase):
 
     def setUp(self):
         if self.bamboo is None:
-            self.bamboo = PyBambooHR(subdomain='test', api_key='testingnotrealapikey')
+            self.bamboo = PyBambooHR.PyBambooHR(subdomain='test', api_key='testingnotrealapikey')
 
     def test_employee_xml(self):
         employee = {
@@ -36,9 +36,9 @@ class test_misc(unittest.TestCase):
         self.assertIn('<field id="lastName">Person</field>', xml)
 
     def test_init_value_errors(self):
-        self.assertRaises(ValueError, PyBambooHR, {'subdomain': 'test'})
-        self.assertRaises(ValueError, PyBambooHR, {'api_key': 'testingnotrealapikey'})
-        self.assertIsNotNone(PyBambooHR(subdomain='test', api_key='testingnotrealapikey'))
+        self.assertRaises(ValueError, PyBambooHR.PyBambooHR, {'subdomain': 'test'})
+        self.assertRaises(ValueError, PyBambooHR.PyBambooHR, {'api_key': 'testingnotrealapikey'})
+        self.assertIsNotNone(PyBambooHR.PyBambooHR(subdomain='test', api_key='testingnotrealapikey'))
 
     def test_xml(self):
         xml = """<?xml version="1.0"?>

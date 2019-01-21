@@ -115,6 +115,7 @@ class PyBambooHR(object):
             "fullName5": ("text", "employee's full name without nickname. First name first. Example: John Quentin Doe. Read only"),
             "displayName": ("text", "employee's name displayed in a format configured by the user. Read only"),
             "gender": ("gender", "The employee's gender. Legal values are 'Male', 'Female'"),
+            "customGithubId.": ("text", "The employee's Github ID"),
             "hireDate": ("date", "The date the employee was hired"),
             "homeEmail": ("email", "The employee's home email address"),
             "homePhone": ("phone", "The employee's home phone number"),
@@ -193,7 +194,7 @@ class PyBambooHR(object):
         @param employee: Dictionary containing row data information.
         """
         xml_fields = ''
-        for k, v in row.iteritems():
+        for k, v in row.items():
             xml_fields += make_field_xml(k, v, pre='\t', post='\n')
 
         xml = "<row>\n{}</row>".format(xml_fields)
