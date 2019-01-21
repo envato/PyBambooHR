@@ -35,10 +35,10 @@ class test_reports(unittest.TestCase):
             self.body = dumps({"title":"Template","fields":[{"id":"fullName2","type":"text","name":"Last Name, First Name"},{"id":"employeeNumber","type":"employee_number","name":"Employee #"},{"id":"hireDate","type":"date","name":"Hire date"}],"employees":[{"id":"123","fullName2":"Person, Test","employeeNumber":"00001","hireDate":"2010-12-15"},{"id":"124","fullName2":"Guy, Someother","employeeNumber":"00002","hireDate":"2008-10-13"},{"id":"125","fullName2":"Here, Someone","employeeNumber":"00003","hireDate":"2011-03-04"}]})
 
         if self.bamboo is None:
-            self.bamboo = PyBambooHR(subdomain='test', api_key='testingnotrealapikey')
+            self.bamboo = PyBambooHR.PyBambooHR(subdomain='test', api_key='testingnotrealapikey')
 
         if self.bamboo_u is None:
-            self.bamboo_u = PyBambooHR(subdomain='test', api_key='testingnotrealapikey', underscore_keys=True)
+            self.bamboo_u = PyBambooHR.PyBambooHR(subdomain='test', api_key='testingnotrealapikey', underscore_keys=True)
 
     @httpretty.activate
     def test_request_company_report(self):
